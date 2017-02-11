@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org).
 
+## 0.5.0 - 2017-02-11
+
+### Added
+
+  - Breadth-first search, tests and implementation.
+
 ## 0.4.0 - 2017-02-10
 
 ### Added
