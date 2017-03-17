@@ -5,17 +5,19 @@ and insertion sort, merge sort, quicksort and breadth-first search.
 
 ## Installation
 
-The sources from this project can be used directly from a browser, although you
-may want to install Node.js for command-line execution and testing purposes. The
-[official installation guide][install-nodejs] covers this process.
-
-## Usage
-
-The sources can be cloned and used from the command-line with Node.js.
+Start by downloading and building the project when necessary. The following
+commands will do the job on most Debian based Linux distributions.
 
 ```bash
 git clone https://github.com/marcbperez/js-algorithms
 cd js-algorithms
+```
+
+## Usage
+
+The examples can be used from the command-line with Node.js.
+
+```bash
 node src/binary-search.js
 ```
 
@@ -37,13 +39,28 @@ Or included in an HTML document.
 
 ## Testing
 
-Tests are executed with Mocha. Install the package for the local user and invoke
-the Mocha runner from the project folder.
+Test checks are executed automatically every time the project is built. Builds
+can be done remotely or continuously on a development context. For continuous
+integration and development use docker-compose. This is recommended to keep the
+system clean while the project is built every time the sources change.
 
 ```bash
-npm install mocha
-./node_modules/mocha/bin/mocha
+sudo docker-compose up
 ```
+
+For continuous integration and development without any dependencies use the
+Gradle wrapper. This is the best option if the wrapper is available and the
+Docker context is not valid. For a full list of tasks, see
+`sudo ./gradlew tasks --all`. For a CI cycle use `sudo ./gradlew --continuous`.
+
+For continuous integration and development without Docker or the project wrapper
+use Gradle directly. This will create the wrapper in case it is not present.
+Similar to the above, for a CI cycle use `sudo gradle --continuous`. Gradle
+3.4.1 is required for this to work. Plain Docker is also available for remote
+integration tasks and alike. Build the image with `sudo docker build .` and run
+a new container with it. Information on how to install Docker and docker-compose
+can be found in their [official page][install-docker-compose]. A similar
+installation guide is available [for Gradle][install-gradle].
 
 ## Troubleshooting
 
@@ -79,4 +96,5 @@ This project is licensed under the [Apache License Version 2.0][license].
 [changelog]: CHANGELOG.md
 [license]: LICENSE
 [semver]: http://semver.org
-[install-nodejs]: https://docs.npmjs.com/getting-started/installing-node
+[install-docker-compose]: https://docs.docker.com/compose/install/
+[install-gradle]: https://gradle.org/install
